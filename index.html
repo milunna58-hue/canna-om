@@ -986,6 +986,9 @@
       /* === HERO === */
       .hero { min-height: 100svh; }
 
+      /* Вертикальное видео — заполняет экран без обрезки */
+      .hero-video { object-fit: cover; object-position: center center; }
+
       /* Badge чуть ниже, меньше */
       .hero-top { padding: 56px 20px 0; }
       .hero-badge { font-size: 9px; padding: 6px 14px; letter-spacing: 0.10em; }
@@ -1224,7 +1227,9 @@
 <section class="hero">
 
   <!-- Full-screen video background -->
+  <!-- mobile: vertical 9:16 | desktop: horizontal 16:9 -->
   <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="public/hero-mobile.mp4" type="video/mp4" media="(max-width: 640px)">
     <source src="public/hero.mp4" type="video/mp4">
   </video>
 
