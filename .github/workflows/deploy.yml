@@ -1,0 +1,98 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          python3 << 'PYEOF'
+          import urllib.request, urllib.error, json, hashlib, os, time
+
+          TOKEN = os.environ["VERCEL_TOKEN"]
+          PROJECT = "canna-om"
+
+          def upload(filepath, vpath):
+              with open(filepath, "rb") as f:
+                  content = f.read()
+              sha = hashlib.sha1(content).hexdigest()
+              size = len(content)
+              req = urllib.request.Request(
+                  "https://api.vercel.com/v2/files",
+                  data=content,
+                  headers={
+                      "Authorization": f"Bearer {TOKEN}",
+                      "Content-Type": "application/octet-stream",
+                      "x-vercel-digest": sha,
+                      "Content-Length": str(size),
+                  },
+                  method="POST",
+              )
+              try:
+                  with urllib.request.urlopen(req) as r: pass
+              except urllib.error.HTTPError as e:
+                  e.read()
+              return {"file": vpath, "sha": sha, "size": size}
+
+          files = []
+          for root, dirs, filenames in os.walk("."):
+              dirs[:] = [d for d in dirs if d not in [".git", ".github", "node_modules"]]
+              for fname in filenames:
+                  fpath = os.path.join(root, fname)
+                  vpath = fpath.lstrip("./")
+                  print(f"  Uploading {vpath}...")
+                  files.append(upload(fpath, vpath))
+
+          payload = {
+              "name": PROJECT,
+              "files": files,
+              "projectSettings": {"framework": None, "outputDirectory": None, "buildCommand": None},
+              "target": "production",
+          }
+          req = urllib.request.Request(
+              "https://api.vercel.com/v13/deployments",
+              data=json.dumps(payload).encode(),
+              headers={"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"},
+              method="POST",
+          )
+          with urllib.request.urlopen(req) as r:
+              result = json.loads(r.read())
+          dep_id = result.get("id")
+          print(f"Deployment {dep_id} created, waiting...")
+
+          for i in range(30):
+              time.sleep(5)
+              req2 = urllib.request.Request(
+                  f"https://api.vercel.com/v13/deployments/{dep_id}",
+                  headers={"Authorization": f"Bearer {TOKEN}"},
+              )
+              with urllib.request.urlopen(req2) as r:
+                  d = json.loads(r.read())
+              state = d.get("readyState")
+              print(f"  [{i+1}] {state}")
+              if state == "READY":
+                  url = d.get("url")
+                  # Set alias
+                  req3 = urllib.request.Request(
+                      f"https://api.vercel.com/v2/deployments/{dep_id}/aliases",
+                      data=json.dumps({"alias": "canna-om.vercel.app"}).encode(),
+                      headers={"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json"},
+                      method="POST",
+                  )
+                  try:
+                      with urllib.request.urlopen(req3) as r: pass
+                  except: pass
+                  print(f"\n✅ LIVE: https://canna-om.vercel.app")
+                  break
+              elif state == "ERROR":
+                  print("Deployment error!")
+                  exit(1)
+          PYEOF
