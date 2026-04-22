@@ -213,22 +213,23 @@
       50% { transform: translateY(-10px); }
     }
 
-    /* Trust pills — bigger, more styled */
+    /* Trust pills — one row */
     .hero-trust {
-      display: flex; gap: 10px; flex-wrap: wrap;
-      margin-top: 20px;
+      display: flex; gap: 8px; flex-wrap: nowrap;
+      margin-top: 20px; overflow-x: auto;
     }
 
     .trust-pill {
-      display: flex; align-items: center; gap: 8px;
+      display: flex; align-items: center; gap: 7px;
       background: rgba(255,255,255,0.10);
       border: 1px solid rgba(255,255,255,0.22);
       color: rgba(255,255,255,0.90);
-      padding: 9px 16px; border-radius: 50px;
-      font-size: 13px; font-weight: 600;
+      padding: 8px 14px; border-radius: 50px;
+      font-size: 12px; font-weight: 600;
       backdrop-filter: blur(8px);
-      letter-spacing: 0.02em;
+      white-space: nowrap;
       transition: all 0.2s ease;
+      flex-shrink: 0;
     }
 
     .trust-pill:hover {
@@ -237,7 +238,7 @@
       color: var(--gold-light);
     }
 
-    .trust-pill .icon { font-size: 15px; }
+    .trust-pill .icon { font-size: 14px; }
 
     /* Scroll hint */
     .hero-scroll {
@@ -409,12 +410,12 @@
     .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(28, 56, 41, 0.12); }
 
     .product-card-img {
-      background: linear-gradient(135deg, #f5e6e8, #e8d5d5);
+      background: var(--cream);
       padding: 40px; text-align: center;
       position: relative;
     }
 
-    .product-card-img.chicken { background: linear-gradient(135deg, #e8f0e5, #d5e5d5); }
+    .product-card-img.chicken { background: var(--cream-dark); }
 
     .product-card-img img {
       width: 200px; max-width: 100%;
