@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canna-Om — CBD лакомства для собак</title>
+  <meta name="description" content="Натуральные CBD лакомства для собак. Спокойствие без химии. EU-сертификат, 0% THC, 4 механизма успокоения.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-deep: #1C3829;
+      --green-mid: #2D5A3D;
+      --green-sage: #5A7A5E;
+      --green-light: #8FAD85;
+      --cream: #F7F3ED;
+      --cream-dark: #EDE9E0;
+      --gold: #C4883A;
+      --gold-light: #E8B86D;
+      --pink-soft: #E8C4C4;
+      --text-dark: #1A1A1A;
+      --text-mid: #4A4A4A;
+      --text-light: #7A7A7A;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(247, 243, 237, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(28, 56, 41, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--green-deep); letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--green-deep);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 13px; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.04em;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    /* Video background */
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Cinematic overlay: dark vignette + bottom gradient for text */
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(to bottom,
+          rgba(10, 22, 15, 0.45) 0%,
+          rgba(10, 22, 15, 0.10) 35%,
+          rgba(10, 22, 15, 0.10) 50%,
+          rgba(10, 22, 15, 0.75) 75%,
+          rgba(10, 22, 15, 0.95) 100%
+        ),
+        radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(10,22,15,0.3) 100%);
+    }
+
+    /* Top bar: logo + badge */
+    .hero-top {
+      position: absolute; top: 0; left: 0; right: 0;
+      z-index: 10;
+      padding: 80px 32px 0;
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(196, 136, 58, 0.18);
+      border: 1px solid rgba(196, 136, 58, 0.45);
+      color: var(--gold-light);
+      padding: 7px 18px; border-radius: 50px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-badge::before { content: '✦'; }
+
+    /* Bottom content block */
+    .hero-content {
+      position: relative; z-index: 10;
+      padding: 0 24px 52px;
+      max-width: 720px; margin: 0 auto; width: 100%;
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 9vw, 80px);
+      color: var(--white);
+      line-height: 1.0;
+      margin-bottom: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 2.5vw, 18px);
+      color: rgba(255,255,255,0.72);
+      max-width: 480px; line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .hero-bottom-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      padding: 15px 32px; border-radius: 50px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none; letter-spacing: 0.04em;
+      transition: all 0.3s ease;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196, 136, 58, 0.45); }
+
+    .btn-secondary {
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.9);
+      padding: 15px 32px; border-radius: 50px;
+      font-size: 14px; font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      white-space: nowrap;
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); }
+
+    /* Floating product thumbnails — right side, offset to not cover dogs */
+    .hero-products {
+      display: flex; gap: 8px; align-items: flex-end;
+      flex-shrink: 0;
+      transform: translateX(20px);
+    }
+
+    .hero-product-img {
+      width: 100px;
+      filter: drop-shadow(0 12px 28px rgba(0,0,0,0.55));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .hero-product-img:nth-child(2) {
+      width: 120px;
+      animation-delay: -2s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Trust pills — bigger, more styled */
+    .hero-trust {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .trust-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.90);
+      padding: 9px 16px; border-radius: 50px;
+      font-size: 13px; font-weight: 600;
+      backdrop-filter: blur(8px);
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+    }
+
+    .trust-pill:hover {
+      background: rgba(255,255,255,0.16);
+      border-color: rgba(196,136,58,0.5);
+      color: var(--gold-light);
+    }
+
+    .trust-pill .icon { font-size: 15px; }
+
+    /* Scroll hint */
+    .hero-scroll {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.35); font-size: 10px; letter-spacing: 0.12em;
+      text-transform: uppercase; animation: bob 2.5s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    .hero-scroll svg { opacity: 0.4; }
+
+    /* PAIN SECTION */
+    .pain {
+      padding: 80px 24px;
+      background: var(--cream-dark);
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--green-sage);
+      margin-bottom: 16px;
+    }
+
+    .pain h2 {
+      font-size: clamp(32px, 6vw, 56px);
+      color: var(--green-deep);
+      max-width: 700px; margin: 0 auto 20px;
+      line-height: 1.1;
+    }
+
+    .pain-intro {
+      font-size: 17px; color: var(--text-mid);
+      max-width: 580px; margin: 0 auto 56px;
+      line-height: 1.7;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; max-width: 960px; margin: 0 auto;
+    }
+
+    .pain-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px 28px;
+      text-align: left;
+      border: 1px solid rgba(28, 56, 41, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .pain-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(28, 56, 41, 0.08); }
+
+    .pain-emoji { font-size: 32px; margin-bottom: 16px; display: block; }
+
+    .pain-card h3 {
+      font-size: 18px; color: var(--green-deep); margin-bottom: 10px;
+    }
+
+    .pain-card p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+    .pain-quote {
+      font-size: 14px; color: var(--text-light);
+      font-style: italic; margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    /* SOLUTION */
+    .solution {
+      padding: 80px 24px;
+      background: var(--green-deep);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+
+    .solution::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196, 136, 58, 0.12) 0%, transparent 70%);
+    }
+
+    .solution .section-label { color: var(--gold-light); }
+
+    .solution h2 {
+      font-size: clamp(32px, 6vw, 56px);
+      color: var(--white);
+      max-width: 700px; margin: 0 auto 20px;
+      line-height: 1.1;
+    }
+
+    .solution h2 em { font-style: italic; color: var(--gold-light); }
+
+    .solution-text {
+      font-size: 17px; color: rgba(255,255,255,0.7);
+      max-width: 600px; margin: 0 auto 56px;
+      line-height: 1.7;
+    }
+
+    .solution-stats {
+      display: flex; gap: 0;
+      justify-content: center; flex-wrap: wrap;
+      max-width: 800px; margin: 0 auto;
+      background: rgba(255,255,255,0.06);
+      border-radius: 24px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat {
+      flex: 1; min-width: 160px;
+      padding: 36px 24px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px; font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px; color: rgba(255,255,255,0.5);
+      margin-top: 8px; letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* PRODUCTS */
+    .products {
+      padding: 80px 24px;
+      background: var(--cream);
+    }
+
+    .products-header {
+      text-align: center; margin-bottom: 56px;
+    }
+
+    .products-header h2 {
+      font-size: clamp(32px, 6vw, 52px);
+      color: var(--green-deep); margin-top: 12px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px; max-width: 900px; margin: 0 auto;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(28, 56, 41, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(28, 56, 41, 0.12); }
+
+    .product-card-img {
+      background: linear-gradient(135deg, #f5e6e8, #e8d5d5);
+      padding: 40px; text-align: center;
+      position: relative;
+    }
+
+    .product-card-img.chicken { background: linear-gradient(135deg, #e8f0e5, #d5e5d5); }
+
+    .product-card-img img {
+      width: 200px; max-width: 100%;
+      filter: drop-shadow(0 16px 32px rgba(0,0,0,0.18));
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-card-img img { transform: scale(1.05) rotate(2deg); }
+
+    .product-tag {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--green-deep);
+      color: var(--white);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 50px;
+    }
+
+    .product-card-body { padding: 28px; }
+
+    .product-card-body h3 {
+      font-size: 22px; color: var(--green-deep);
+      margin-bottom: 8px;
+    }
+
+    .product-tagline {
+      font-size: 13px; color: var(--green-sage);
+      font-weight: 600; margin-bottom: 20px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    .product-benefits {
+      list-style: none; margin-bottom: 24px;
+    }
+
+    .product-benefits li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--text-mid);
+      padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .product-benefits li:last-child { border-bottom: none; }
+    .benefit-check { color: var(--green-sage); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    .product-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 8px; margin-bottom: 24px;
+    }
+
+    .mini-stat {
+      background: var(--cream);
+      border-radius: 12px; padding: 12px 8px; text-align: center;
+    }
+
+    .mini-stat-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 700; color: var(--green-deep);
+    }
+
+    .mini-stat-key { font-size: 10px; color: var(--text-light); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    .product-cta {
+      width: 100%;
+      background: var(--green-deep);
+      color: var(--white);
+      border: none; border-radius: 14px;
+      padding: 16px; font-size: 15px; font-weight: 700;
+      cursor: pointer; text-align: center;
+      text-decoration: none; display: block;
+      transition: all 0.3s ease;
+      letter-spacing: 0.04em;
+    }
+
+    .product-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+    .product-cta.gold { background: var(--gold); }
+    .product-cta.gold:hover { background: var(--gold-light); }
+
+    /* MECHANISMS */
+    .mechanisms {
+      padding: 80px 24px;
+      background: var(--cream-dark);
+    }
+
+    .mechanisms-header { text-align: center; margin-bottom: 56px; }
+
+    .mechanisms-header h2 {
+      font-size: clamp(30px, 5vw, 50px);
+      color: var(--green-deep); margin-top: 12px;
+    }
+
+    .mech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px; max-width: 860px; margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      .mech-grid { grid-template-columns: 1fr; }
+    }
+
+    .mech-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 32px 24px;
+      border: 1px solid rgba(28, 56, 41, 0.08);
+      position: relative; overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mech-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(28, 56, 41, 0.10); }
+
+    .mech-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    }
+
+    .mech-card.cbd::before { background: linear-gradient(90deg, #2D5A3D, #5A7A5E); }
+    .mech-card.chamomile::before { background: linear-gradient(90deg, #C4883A, #E8B86D); }
+    .mech-card.tryptophan::before { background: linear-gradient(90deg, #6B4C8B, #9B7CB6); }
+    .mech-card.magnesium::before { background: linear-gradient(90deg, #2B6CB0, #63B3ED); }
+
+    .mech-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px; font-weight: 700;
+      color: var(--cream-dark);
+      line-height: 1; margin-bottom: 12px;
+    }
+
+    .mech-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+    .mech-card h3 { font-size: 18px; color: var(--green-deep); margin-bottom: 10px; }
+    .mech-card p { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
+    .mech-result {
+      margin-top: 14px; padding: 10px 14px;
+      background: var(--cream-dark); border-radius: 10px;
+      font-size: 12px; font-weight: 600; color: var(--green-deep);
+    }
+
+    .mech-together {
+      max-width: 700px; margin: 48px auto 0;
+      background: var(--green-deep);
+      border-radius: 24px; padding: 36px;
+      text-align: center;
+    }
+
+    .mech-together p {
+      color: rgba(255,255,255,0.85); font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .mech-together strong { color: var(--gold-light); }
+
+    /* AXES */
+    .axes {
+      padding: 80px 24px;
+      background: var(--cream);
+    }
+
+    .axes-header { text-align: center; margin-bottom: 56px; }
+
+    .axes-header h2 {
+      font-size: clamp(30px, 5vw, 50px);
+      color: var(--green-deep); margin-top: 12px;
+    }
+
+    .axes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; max-width: 1040px; margin: 0 auto;
+    }
+
+    .axis-card {
+      border-radius: 24px; padding: 32px 28px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      cursor: default;
+      background: var(--white);
+    }
+
+    .axis-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+
+    .axis-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+    .axis-card h3 { font-size: 20px; color: var(--green-deep); margin-bottom: 8px; }
+    .axis-pain { font-size: 12px; color: var(--text-light); margin-bottom: 12px; font-style: italic; }
+    .axis-card p { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+
+    .axis-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;
+    }
+
+    .axis-tag {
+      background: var(--cream-dark);
+      color: var(--green-deep);
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 50px;
+    }
+
+    /* COMPARISON */
+    .comparison {
+      padding: 80px 24px;
+      background: var(--green-deep);
+    }
+
+    .comparison-header { text-align: center; margin-bottom: 48px; }
+    .comparison-header .section-label { color: var(--gold-light); }
+    .comparison-header h2 { font-size: clamp(28px, 5vw, 48px); color: var(--white); margin-top: 12px; }
+
+    .comp-table {
+      max-width: 900px; margin: 0 auto;
+      border-radius: 20px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .comp-row {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+      align-items: center;
+    }
+
+    .comp-row.header {
+      background: rgba(255,255,255,0.08);
+      padding: 16px 20px;
+    }
+
+    .comp-row.body {
+      background: rgba(255,255,255,0.04);
+      padding: 14px 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.2s;
+    }
+
+    .comp-row.body:hover { background: rgba(255,255,255,0.07); }
+    .comp-row.us { background: rgba(196, 136, 58, 0.12) !important; }
+
+    .comp-cell {
+      font-size: 13px; color: rgba(255,255,255,0.7);
+      text-align: center; padding: 0 8px;
+    }
+
+    .comp-cell:first-child { text-align: left; color: rgba(255,255,255,0.9); font-weight: 500; }
+    .comp-cell.header-cell { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-align: center; }
+    .comp-cell.header-cell:first-child { text-align: left; }
+    .comp-cell.us-col { color: var(--gold-light) !important; font-weight: 600; }
+
+    .comp-yes { color: #6BCB77; font-size: 16px; }
+    .comp-no { color: #FF6B6B; font-size: 16px; }
+    .comp-maybe { color: var(--gold-light); font-size: 16px; }
+
+    /* TRUST */
+    .trust {
+      padding: 80px 24px;
+      background: var(--cream-dark);
+      text-align: center;
+    }
+
+    .trust h2 { font-size: clamp(28px, 5vw, 46px); color: var(--green-deep); margin-bottom: 16px; }
+
+    .trust-text {
+      font-size: 16px; color: var(--text-mid); max-width: 560px;
+      margin: 0 auto 56px; line-height: 1.7;
+    }
+
+    .trust-badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px; max-width: 900px; margin: 0 auto 56px;
+    }
+
+    .trust-badge {
+      background: var(--white);
+      border-radius: 20px; padding: 32px 24px;
+      border: 1px solid rgba(28, 56, 41, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .trust-badge:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(28, 56, 41, 0.08); }
+
+    .trust-badge-icon { font-size: 36px; margin-bottom: 12px; }
+    .trust-badge h4 { font-size: 16px; color: var(--green-deep); margin-bottom: 6px; }
+    .trust-badge p { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
+
+    .made-in {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--white); border-radius: 50px;
+      padding: 16px 28px;
+      border: 1px solid rgba(28, 56, 41, 0.12);
+      font-size: 14px; color: var(--text-mid);
+    }
+
+    .made-in strong { color: var(--green-deep); }
+    .flag { font-size: 24px; }
+
+    /* AVATARS */
+    .avatars {
+      padding: 80px 24px;
+      background: var(--cream);
+    }
+
+    .avatars-header { text-align: center; margin-bottom: 56px; }
+    .avatars-header h2 { font-size: clamp(28px, 5vw, 46px); color: var(--green-deep); margin-top: 12px; }
+
+    .avatar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; max-width: 960px; margin: 0 auto;
+    }
+
+    .avatar-card {
+      background: var(--white);
+      border-radius: 24px; padding: 32px 28px;
+      border: 1px solid rgba(28, 56, 41, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .avatar-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(28, 56, 41, 0.1); }
+
+    .avatar-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+    }
+
+    .avatar-emoji {
+      width: 54px; height: 54px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
+    }
+
+    .avatar-emoji.green { background: rgba(90, 122, 94, 0.15); }
+    .avatar-emoji.gold { background: rgba(196, 136, 58, 0.15); }
+    .avatar-emoji.pink { background: rgba(232, 196, 196, 0.4); }
+
+    .avatar-name { font-size: 18px; color: var(--green-deep); margin-bottom: 3px; }
+    .avatar-desc { font-size: 12px; color: var(--text-light); }
+
+    .avatar-pain {
+      font-size: 14px; color: var(--text-mid);
+      line-height: 1.65; margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .avatar-trigger {
+      font-size: 12px; font-weight: 600; color: var(--gold);
+      padding: 8px 14px; background: rgba(196, 136, 58, 0.1);
+      border-radius: 50px; display: inline-block;
+    }
+
+    /* DOSAGE */
+    .dosage {
+      padding: 80px 24px;
+      background: var(--green-deep);
+      text-align: center;
+    }
+
+    .dosage .section-label { color: var(--gold-light); }
+    .dosage h2 { font-size: clamp(28px, 5vw, 46px); color: var(--white); margin-top: 12px; margin-bottom: 48px; }
+
+    .dose-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px; max-width: 700px; margin: 0 auto 48px;
+    }
+
+    .dose-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 20px 16px;
+      text-align: center; transition: all 0.3s ease;
+    }
+
+    .dose-card:hover { background: rgba(255,255,255,0.11); }
+
+    .dose-weight {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; color: var(--gold-light); font-weight: 700;
+    }
+
+    .dose-amount { font-size: 20px; color: var(--white); font-weight: 600; margin: 4px 0; }
+    .dose-unit { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .dose-note {
+      max-width: 560px; margin: 0 auto;
+      background: rgba(255,255,255,0.07);
+      border-radius: 16px; padding: 20px 24px;
+      font-size: 14px; color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 80px 24px;
+      background: var(--cream-dark);
+    }
+
+    .faq-header { text-align: center; margin-bottom: 48px; }
+    .faq-header h2 { font-size: clamp(28px, 5vw, 46px); color: var(--green-deep); margin-top: 12px; }
+
+    .faq-list { max-width: 720px; margin: 0 auto; }
+
+    .faq-item {
+      background: var(--white); border-radius: 16px;
+      margin-bottom: 12px; overflow: hidden;
+      border: 1px solid rgba(28, 56, 41, 0.08);
+    }
+
+    .faq-q {
+      width: 100%; background: none; border: none;
+      text-align: left; cursor: pointer;
+      padding: 20px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 600; color: var(--green-deep);
+      transition: background 0.2s;
+    }
+
+    .faq-q:hover { background: rgba(28, 56, 41, 0.03); }
+
+    .faq-arrow {
+      width: 28px; height: 28px; flex-shrink: 0;
+      background: var(--cream-dark); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: var(--green-sage);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    .faq-a-inner {
+      padding: 0 24px 20px;
+      font-size: 14px; color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
+      padding: 80px 24px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(34px, 7vw, 68px);
+      color: var(--green-deep);
+      max-width: 700px; margin: 0 auto 20px;
+      line-height: 1.05;
+    }
+
+    .final-cta h2 em { font-style: italic; color: var(--gold); }
+
+    .final-cta-sub {
+      font-size: 17px; color: var(--text-mid);
+      max-width: 500px; margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-big {
+      background: var(--green-deep);
+      color: var(--white);
+      padding: 18px 44px; border-radius: 50px;
+      font-size: 16px; font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-big:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(28, 56, 41, 0.25); }
+
+    .btn-big.gold-big { background: var(--gold); }
+    .btn-big.gold-big:hover { background: var(--gold-light); box-shadow: 0 10px 30px rgba(196, 136, 58, 0.3); }
+
+    .final-assurance {
+      margin-top: 32px;
+      display: flex; gap: 20px; flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .assurance-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--text-light);
+    }
+
+    .assurance-item span { color: var(--green-sage); font-size: 16px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--green-deep);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 700;
+      color: var(--white); margin-bottom: 12px;
+    }
+
+    .footer-logo span { color: var(--gold-light); }
+
+    footer p {
+      font-size: 13px; color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+    }
+
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--gold-light); }
+
+    .footer-divider { width: 60px; height: 1px; background: rgba(255,255,255,0.1); margin: 20px auto; }
+
+    /* SCROLL ANIMATION */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: all 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      .hero-content { padding: 0 20px 44px; text-align: left; }
+      .hero-top { padding: 76px 20px 0; }
+      .hero-bottom-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .hero-products { align-self: flex-end; }
+      .hero-product-img { width: 70px; }
+      .hero-product-img:nth-child(2) { width: 84px; }
+      .hero-buttons { gap: 10px; }
+      .hero-trust { gap: 8px; margin-top: 16px; }
+      .trust-pill { font-size: 10px; padding: 5px 10px; }
+
+      .comp-table { overflow-x: auto; }
+      .comp-row { grid-template-columns: 1.2fr 0.9fr 0.9fr 0.9fr 0.9fr; min-width: 500px; }
+
+      .stat { min-width: 120px; padding: 24px 16px; }
+      .stat-num { font-size: 34px; }
+
+      nav { padding: 12px 16px; }
+      .nav-cta { padding: 8px 16px; font-size: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 36px; }
+      .pain-grid, .products-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Ingredient highlight */
+    .ingredients {
+      padding: 80px 24px;
+      background: var(--white);
+    }
+
+    .ingredients-header { text-align: center; margin-bottom: 56px; }
+    .ingredients-header h2 { font-size: clamp(28px, 5vw, 46px); color: var(--green-deep); margin-top: 12px; }
+
+    .ing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px; max-width: 1020px; margin: 0 auto;
+    }
+
+    .ing-card {
+      border-radius: 20px; padding: 28px 22px;
+      background: var(--cream);
+      border: 1px solid rgba(28, 56, 41, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .ing-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.07); }
+
+    .ing-icon { font-size: 28px; margin-bottom: 12px; }
+    .ing-name { font-size: 15px; font-weight: 700; color: var(--green-deep); margin-bottom: 6px; }
+    .ing-role { font-size: 11px; color: var(--green-sage); font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 10px; }
+    .ing-desc { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Canna<span>·Om</span></a>
+  <a href="#order" class="nav-cta">Заказать →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- Full-screen video background -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="public/hero.mp4" type="video/mp4">
+  </video>
+
+  <!-- Cinematic overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Badge — top center -->
+  <div class="hero-top">
+    <div class="hero-badge">Первый болгарский бренд CBD-лакомств</div>
+  </div>
+
+  <!-- Main content — bottom left -->
+  <div class="hero-content">
+    <h1>Спокойная <em>собака</em> —<br>спокойный дом</h1>
+    <p class="hero-sub">
+      Натуральные функциональные лакомства с CBD для собак.
+      4 механизма успокоения. Без химии. Без седации. Без привыкания.
+    </p>
+
+    <div class="hero-bottom-row">
+      <div>
+        <div class="hero-buttons">
+          <a href="#order" class="btn-primary">Выбрать продукт</a>
+          <a href="#how" class="btn-secondary">Как работает?</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-pill"><span class="icon">🇪🇺</span> Произведено в ЕС</div>
+          <div class="trust-pill"><span class="icon">🧪</span> 0% THC лабораторно</div>
+          <div class="trust-pill"><span class="icon">🌿</span> Натуральный состав</div>
+          <div class="trust-pill"><span class="icon">✦</span> EU ветсертификат</div>
+        </div>
+      </div>
+
+      <!-- Product packs floating on the right — transparent bg, offset from dogs -->
+      <div class="hero-products">
+        <img src="public/pork-beef-new.png" alt="CBD Treats Pork & Beef" class="hero-product-img">
+        <img src="public/chicken-turkey-new.png" alt="CBD Treats Chicken & Turkey" class="hero-product-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+      <path d="M8 1v18M1 12l7 7 7-7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+</section>
+
+<!-- PAIN SECTION -->
+<section class="pain">
+  <p class="section-label reveal">Мы вас понимаем</p>
+  <h2 class="reveal">Ваша собака страдает<br>— а вы рядом, беспомощны</h2>
+  <p class="pain-intro reveal">
+    Каждый владелец знает это чувство. Когда любимый питомец в панике, а вы не можете помочь.
+  </p>
+  <div class="pain-grid">
+    <div class="pain-card reveal">
+      <span class="pain-emoji">🎆</span>
+      <h3>Фейерверки и грозы</h3>
+      <p>Новый год, 31 декабря. Белла дрожит уже за полчаса. Прячется под диван. Не выходит.</p>
+      <p class="pain-quote">«Я встречаю праздник на полу в ванной, обнимая дрожащего питомца»</p>
+    </div>
+    <div class="pain-card reveal">
+      <span class="pain-emoji">🚪</span>
+      <h3>Разлучение. Каждый день</h3>
+      <p>Возвращаетесь домой — диван разодран. Соседи жалуются. А вы чувствуете вину.</p>
+      <p class="pain-quote">«Я как будто бросаю её каждый раз. Это сводит меня с ума»</p>
+    </div>
+    <div class="pain-card reveal">
+      <span class="pain-emoji">💊</span>
+      <h3>Не хочу давать химию</h3>
+      <p>Ветеринар предлагает ацепромазин. Вы смотрите побочки — и закрываете ноутбук.</p>
+      <p class="pain-quote">«Должно быть что-то натуральное. Без зомбирования.»</p>
+    </div>
+    <div class="pain-card reveal">
+      <span class="pain-emoji">🐕</span>
+      <h3>Спасённая собака с травмой</h3>
+      <p>Гошо боится мужчин, лестниц, пластиковых пакетов. Хлопнула дверь — он мочится от страха.</p>
+      <p class="pain-quote">«Я обещала ему лучшую жизнь. Почему не получается?»</p>
+    </div>
+    <div class="pain-card reveal">
+      <span class="pain-emoji">🦴</span>
+      <h3>Пожилая собака болеет</h3>
+      <p>Макс с трудом встаёт. НПВП повредили желудок. «Лечим одно — калечим другое».</p>
+      <p class="pain-quote">«Нет ли чего-то натурального, что облегчит боль?»</p>
+    </div>
+    <div class="pain-card reveal">
+      <span class="pain-emoji">✈️</span>
+      <h3>Поездки — стресс для всех</h3>
+      <p>Машина, самолёт, ветеринар — каждый раз паника. Собака трясётся, скулит, вырывается.</p>
+      <p class="pain-quote">«Я уже не езжу никуда. Она не выдержит.»</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <p class="section-label reveal">Наш ответ</p>
+  <h2 class="reveal">Мы создали <em>решение</em>,<br>которое реально работает</h2>
+  <p class="solution-text reveal">
+    Canna-Om — это не просто лакомство. Это функциональная нутрицевтическая система,
+    разработанная специально для собак, которые страдают. Наука + натуральность = результат.
+  </p>
+  <div class="solution-stats reveal">
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Механизма успокоения</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0%</div>
+      <div class="stat-label">THC / Без психоактивности</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">35%</div>
+      <div class="stat-label">Реального мяса</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">EU</div>
+      <div class="stat-label">Ветсертификат</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="order">
+  <div class="products-header">
+    <p class="section-label reveal">Два продукта — две стратегии</p>
+    <h2 class="reveal">Выберите то, что нужно вашей собаке</h2>
+  </div>
+  <div class="products-grid">
+
+    <!-- PORK & BEEF -->
+    <div class="product-card reveal">
+      <div class="product-card-img">
+        <div class="product-tag">Активные собаки</div>
+        <img src="public/pork-beef-new.png" alt="CBD Treats Pork & Beef">
+      </div>
+      <div class="product-card-body">
+        <h3>Свинина и Говядина</h3>
+        <p class="product-tagline">Сила + Мотивация + Минералы</p>
+        <ul class="product-benefits">
+          <li><span class="benefit-check">✦</span> Двойной источник белка — богатый аминокислотный профиль</li>
+          <li><span class="benefit-check">✦</span> CBD 0,65 мг/кг натуральный из конопляного волокна</li>
+          <li><span class="benefit-check">✦</span> Говядина: железо, B12, цинк, коэнзим Q10</li>
+          <li><span class="benefit-check">✦</span> Свинина: тиамин B1 — нервная проводимость</li>
+          <li><span class="benefit-check">✦</span> CBD + ромашка = спокойствие на тренировке</li>
+          <li><span class="benefit-check">✦</span> Идеально для дрессировки и мотивации</li>
+        </ul>
+        <div class="product-stats">
+          <div class="mini-stat">
+            <div class="mini-stat-val">25,5%</div>
+            <div class="mini-stat-key">Белок</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-val">9,8%</div>
+            <div class="mini-stat-key">Жир</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-val">387</div>
+            <div class="mini-stat-key">ккал/100г</div>
+          </div>
+        </div>
+        <a href="https://canna-om.com" target="_blank" class="product-cta">Заказать на canna-om.com →</a>
+      </div>
+    </div>
+
+    <!-- CHICKEN & TURKEY -->
+    <div class="product-card reveal">
+      <div class="product-card-img chicken">
+        <div class="product-tag" style="background: var(--gold);">Тревожные / Аллергики</div>
+        <img src="public/chicken-turkey-new.png" alt="CBD Treats Chicken & Turkey">
+      </div>
+      <div class="product-card-body">
+        <h3>Курица и Индейка</h3>
+        <p class="product-tagline">Успокоение + Аллергия + Диабетики</p>
+        <ul class="product-benefits">
+          <li><span class="benefit-check">✦</span> Сахар всего 0,49% — в 17 раз меньше, чем у свинины</li>
+          <li><span class="benefit-check">✦</span> Индейка: рекордный триптофан → серотонин → спокойствие</li>
+          <li><span class="benefit-check">✦</span> Гипоаллергенный белок птицы — для чувствительного ЖКТ</li>
+          <li><span class="benefit-check">✦</span> CBD + ромашка + триптофан + магний = 4 механизма</li>
+          <li><span class="benefit-check">✦</span> Подходит для диабетиков и собак с избыточным весом</li>
+          <li><span class="benefit-check">✦</span> Таурин курицы — защита сердца и профилактика DCM</li>
+        </ul>
+        <div class="product-stats">
+          <div class="mini-stat">
+            <div class="mini-stat-val">23,5%</div>
+            <div class="mini-stat-key">Белок</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-val">0,49%</div>
+            <div class="mini-stat-key">Сахара</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-val">387</div>
+            <div class="mini-stat-key">ккал/100г</div>
+          </div>
+        </div>
+        <a href="https://canna-om.com" target="_blank" class="product-cta gold">Заказать на canna-om.com →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="mechanisms" id="how">
+  <div class="mechanisms-header">
+    <p class="section-label reveal">Наука за продуктом</p>
+    <h2 class="reveal">4 натуральных механизма<br>спокойствия — одновременно</h2>
+  </div>
+  <div class="mech-grid">
+    <div class="mech-card cbd reveal">
+      <div class="mech-num">01</div>
+      <span class="mech-icon">🌿</span>
+      <h3>CBD (каннабидиол)</h3>
+      <p>Взаимодействует с CB1-рецепторами эндоканнабиноидной системы мозга собаки. Активирует рецепторы серотонина 5-HT1A. Снижает болевую чувствительность через TRPV1-рецепторы.</p>
+      <div class="mech-result">✦ Снижение тревоги без психоактивности</div>
+    </div>
+    <div class="mech-card chamomile reveal">
+      <div class="mech-num">02</div>
+      <span class="mech-icon">🌼</span>
+      <h3>Апигенин ромашки</h3>
+      <p>Связывается с бензодиазепиновыми сайтами ГАМК-рецепторов — тот же механизм, что у валиума, но без зависимости. Хамазулен снижает воспаление нервной ткани.</p>
+      <div class="mech-result">✦ Мягкое успокоение без сонливости</div>
+    </div>
+    <div class="mech-card tryptophan reveal">
+      <div class="mech-num">03</div>
+      <span class="mech-icon">🦃</span>
+      <h3>Триптофан индейки</h3>
+      <p>Рекордное содержание триптофана среди всех видов мяса (320–350 мг/100г). Путь: Триптофан → 5-HTP → Серотонин → Мелатонин. Ось нейрохимического спокойствия.</p>
+      <div class="mech-result">✦ Хроническое снижение фоновой тревоги</div>
+    </div>
+    <div class="mech-card magnesium reveal">
+      <div class="mech-num">04</div>
+      <span class="mech-icon">⚡</span>
+      <h3>Магний</h3>
+      <p>Природный блокатор NMDA-рецепторов — снижает возбудимость нервной системы. Кофактор синтеза ГАМК. Регулирует кортизол. Мышечный релаксант.</p>
+      <div class="mech-result">✦ Снижение нервного возбуждения и стресса</div>
+    </div>
+  </div>
+  <div class="mech-together reveal">
+    <p>
+      Четыре механизма действуют <strong>через разные рецепторные системы мозга</strong>,
+      усиливая действие друг друга.<br><br>
+      <strong>Ваша собака остаётся собой — просто спокойной.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- 5 AXES -->
+<section class="axes">
+  <div class="axes-header">
+    <p class="section-label reveal">Пять систем здоровья</p>
+    <h2 class="reveal">Один продукт — пять<br>точек воздействия</h2>
+  </div>
+  <div class="axes-grid">
+    <div class="axis-card reveal">
+      <span class="axis-icon">🧠</span>
+      <h3>Нервная система и спокойствие</h3>
+      <p class="axis-pain">«Я не могу смотреть, как он страдает»</p>
+      <p>CBD + апигенин ромашки + триптофан + магний работают через 4 рецепторные системы. Тревожность, фейерверки, разлучение, поездки — комплексное решение.</p>
+      <div class="axis-tags">
+        <span class="axis-tag">CBD</span>
+        <span class="axis-tag">Ромашка</span>
+        <span class="axis-tag">Триптофан</span>
+        <span class="axis-tag">Магний</span>
+      </div>
+    </div>
+    <div class="axis-card reveal">
+      <span class="axis-icon">🫀</span>
+      <h3>Сердце и сосуды</h3>
+      <p class="axis-pain">«Хочу, чтобы его сердце было здоровым»</p>
+      <p>Таурин из курицы критически важен для профилактики DCM (доказано UC Davis, 2019). Омега-9 + калий + коэнзим Q10 — кардиопротекция для собак 7+ лет.</p>
+      <div class="axis-tags">
+        <span class="axis-tag">Таурин</span>
+        <span class="axis-tag">Омега-9</span>
+        <span class="axis-tag">Q10</span>
+        <span class="axis-tag">Калий</span>
+      </div>
+    </div>
+    <div class="axis-card reveal">
+      <span class="axis-icon">🌿</span>
+      <h3>Пищеварение и ЖКТ</h3>
+      <p class="axis-pain">«Постоянные проблемы с животом — устала»</p>
+      <p>Глутамин из курицы восстанавливает кишечный барьер. Клетчатка конопли нормализует микробиом. Ромашка снимает воспаление слизистой.</p>
+      <div class="axis-tags">
+        <span class="axis-tag">Глутамин</span>
+        <span class="axis-tag">Клетчатка</span>
+        <span class="axis-tag">Ромашка</span>
+      </div>
+    </div>
+    <div class="axis-card reveal">
+      <span class="axis-icon">🛡️</span>
+      <h3>Антиоксиданты и долголетие</h3>
+      <p class="axis-pain">«Хочу, чтобы он прожил дольше»</p>
+      <p>CBD + SOD + хлорофилл пшеничной травы + витамин E — мощная антиоксидантная защита. Замедление когнитивного старения. Поддержка иммунитета пожилых собак.</p>
+      <div class="axis-tags">
+        <span class="axis-tag">CBD</span>
+        <span class="axis-tag">Хлорофилл</span>
+        <span class="axis-tag">Вит. E</span>
+        <span class="axis-tag">SOD</span>
+      </div>
+    </div>
+    <div class="axis-card reveal">
+      <span class="axis-icon">✨</span>
+      <h3>Кожа, шерсть и аллергия</h3>
+      <p class="axis-pain">«Она расчёсывает себя до крови»</p>
+      <p>Конопляное масло холодного отжима — оптимальный баланс омега-3/6/9. GLA снижает воспаление. Цинк — синтез кератина. Холодный отжим сохраняет максимум нутриентов.</p>
+      <div class="axis-tags">
+        <span class="axis-tag">Омега-3</span>
+        <span class="axis-tag">GLA</span>
+        <span class="axis-tag">Цинк</span>
+        <span class="axis-tag">Масло конопли</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients">
+  <div class="ingredients-header">
+    <p class="section-label reveal">Состав без компромиссов</p>
+    <h2 class="reveal">Каждый ингредиент — с причиной</h2>
+  </div>
+  <div class="ing-grid">
+    <div class="ing-card reveal">
+      <div class="ing-icon">🌿</div>
+      <div class="ing-name">CBD из конопляного волокна</div>
+      <div class="ing-role">Натуральный · 0,65 мг/кг</div>
+      <div class="ing-desc">Натуральный, не синтетический. Из волокна, не экстракт. 0% THC подтверждено лабораторно на каждую партию. CoA доступен.</div>
+    </div>
+    <div class="ing-card reveal">
+      <div class="ing-icon">🫒</div>
+      <div class="ing-name">Конопляное масло холодного отжима</div>
+      <div class="ing-role">Омега-3/6/9 · Максимум нутриентов</div>
+      <div class="ing-desc">Холодный отжим сохраняет до 90% биоактивных веществ. Идеальный баланс омега-кислот для кожи, шерсти и иммунитета.</div>
+    </div>
+    <div class="ing-card reveal">
+      <div class="ing-icon">🌼</div>
+      <div class="ing-name">Ромашка сушёная</div>
+      <div class="ing-role">Апигенин · ГАМК-рецепторы</div>
+      <div class="ing-desc">Апигенин связывается с теми же рецепторами, что и бензодиазепины — но без зависимости и побочек. Мягкое, натуральное успокоение.</div>
+    </div>
+    <div class="ing-card reveal">
+      <div class="ing-icon">🌾</div>
+      <div class="ing-name">Трава молодой пшеницы</div>
+      <div class="ing-role">Хлорофилл · Антиоксиданты</div>
+      <div class="ing-desc">Хлорофилл, SOD, витамины C и E, ферменты. Детокс, иммунная поддержка, противовоспалительный эффект. Живой суперфуд.</div>
+    </div>
+    <div class="ing-card reveal">
+      <div class="ing-icon">🍗</div>
+      <div class="ing-name">Курица и индейка — 35% мяса</div>
+      <div class="ing-role">Таурин · Триптофан · Глутамин</div>
+      <div class="ing-desc">Курица: таурин для сердца, глутамин для ЖКТ. Индейка: рекордный триптофан — предшественник серотонина. Гипоаллергенный белок.</div>
+    </div>
+    <div class="ing-card reveal">
+      <div class="ing-icon">🥩</div>
+      <div class="ing-name">Говядина и свинина — 35% мяса</div>
+      <div class="ing-role">B12 · Железо · Тиамин</div>
+      <div class="ing-desc">Говядина: гемовое железо (биодоступность 25%), B12, коэнзим Q10. Свинина: высший тиамин B1 для нервной проводимости. Разнообразный аминокислотный профиль.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison">
+  <div class="comparison-header">
+    <p class="section-label">Почему не таблетки?</p>
+    <h2 class="reveal">Сравните сами</h2>
+  </div>
+  <div class="comp-table reveal">
+    <div class="comp-row header">
+      <div class="comp-cell header-cell">Решение</div>
+      <div class="comp-cell header-cell">Эффект</div>
+      <div class="comp-cell header-cell">Побочки</div>
+      <div class="comp-cell header-cell">Привыкание</div>
+      <div class="comp-cell header-cell">Натурально</div>
+    </div>
+    <div class="comp-row body">
+      <div class="comp-cell">Ацепромазин</div>
+      <div class="comp-cell">Седация</div>
+      <div class="comp-cell"><span class="comp-no">✗</span> Вялость, тремор</div>
+      <div class="comp-cell"><span class="comp-no">✗</span> Да</div>
+      <div class="comp-cell"><span class="comp-no">✗</span> Нет</div>
+    </div>
+    <div class="comp-row body">
+      <div class="comp-cell">Бензодиазепины</div>
+      <div class="comp-cell">Глубокая седация</div>
+      <div class="comp-cell"><span class="comp-no">✗</span> Амнезия, атаксия</div>
+      <div class="comp-cell"><span class="comp-no">✗</span> Да</div>
+      <div class="comp-cell"><span class="comp-no">✗</span> Нет</div>
+    </div>
+    <div class="comp-row body">
+      <div class="comp-cell">Феромоновый ошейник</div>
+      <div class="comp-cell">Частичное</div>
+      <div class="comp-cell"><span class="comp-maybe">~</span> Нет данных</div>
+      <div class="comp-cell"><span class="comp-yes">✓</span> Нет</div>
+      <div class="comp-cell"><span class="comp-maybe">~</span> Частично</div>
+    </div>
+    <div class="comp-row body us">
+      <div class="comp-cell us-col">✦ Canna-Om CBD</div>
+      <div class="comp-cell us-col">Спокойствие без седации</div>
+      <div class="comp-cell us-col"><span class="comp-yes">✓</span> Не выявлено</div>
+      <div class="comp-cell us-col"><span class="comp-yes">✓</span> Нет</div>
+      <div class="comp-cell us-col"><span class="comp-yes">✓</span> 100%</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <p class="section-label reveal">Качество без компромиссов</p>
+  <h2 class="reveal">Почему нам доверяют</h2>
+  <p class="trust-text reveal">
+    Каждая упаковка Canna-Om — это не просто лакомство, а продукт с документально подтверждённым качеством.
+  </p>
+  <div class="trust-badges">
+    <div class="trust-badge reveal">
+      <div class="trust-badge-icon">🇪🇺</div>
+      <h4>Произведено в ЕС</h4>
+      <p>Хорватия. EU ветеринарный номер<br><strong>HR08-009NP</strong></p>
+    </div>
+    <div class="trust-badge reveal">
+      <div class="trust-badge-icon">🧪</div>
+      <h4>Лабораторно подтверждено</h4>
+      <p>CoA (Certificate of Analysis) на каждую партию. 0% THC гарантировано.</p>
+    </div>
+    <div class="trust-badge reveal">
+      <div class="trust-badge-icon">🌿</div>
+      <h4>Натуральный CBD</h4>
+      <p>Из конопляного волокна, не синтетический. Холодный отжим масла.</p>
+    </div>
+    <div class="trust-badge reveal">
+      <div class="trust-badge-icon">📅</div>
+      <h4>Срок стабильности 24 месяца</h4>
+      <p>Стабильный продукт без консервантов. Упаковка с защитой от влаги.</p>
+    </div>
+    <div class="trust-badge reveal">
+      <div class="trust-badge-icon">🐾</div>
+      <h4>Ветеринарный контроль</h4>
+      <p>Производитель: Rata Trade OOD, Болгария. Полный ветеринарный надзор.</p>
+    </div>
+    <div class="trust-badge reveal">
+      <div class="trust-badge-icon">🏆</div>
+      <h4>Первый в Болгарии</h4>
+      <p>Первый локальный бренд CBD-лакомств с EU-сертификатом. Рынок пуст — мы первые.</p>
+    </div>
+  </div>
+  <div class="made-in reveal">
+    <span class="flag">🇭🇷</span>
+    <span>Made in <strong>Croatia</strong> · EU Production · <strong>Rata Trade OOD</strong>, Bulgaria</span>
+  </div>
+</section>
+
+<!-- AVATARS -->
+<section class="avatars">
+  <div class="avatars-header">
+    <p class="section-label reveal">Для кого это?</p>
+    <h2 class="reveal">Узнайте себя</h2>
+  </div>
+  <div class="avatar-grid">
+    <div class="avatar-card reveal">
+      <div class="avatar-header">
+        <div class="avatar-emoji green">👩‍💻</div>
+        <div>
+          <div class="avatar-name">Вела, 28–42 года</div>
+          <div class="avatar-desc">IT, маркетинг · Собака — её «ребёнок»</div>
+        </div>
+      </div>
+      <p class="avatar-pain">
+        «Новый год. Белла трясётся. Я сижу на полу, обнимаю её, а помочь не могу.
+        Ветеринар предложил таблетки — я посмотрела побочки и закрыла ноутбук.
+        Должно быть что-то натуральное.»
+      </p>
+      <span class="avatar-trigger">✦ Тревожная собака / Фейерверки / «Без химии»</span>
+    </div>
+    <div class="avatar-card reveal">
+      <div class="avatar-header">
+        <div class="avatar-emoji gold">👨</div>
+        <div>
+          <div class="avatar-name">Цветан, 45–60 лет</div>
+          <div class="avatar-desc">Владелец пожилого лабрадора · Прагматик</div>
+        </div>
+      </div>
+      <p class="avatar-pain">
+        «Макс перестал запрыгивать на диван. Ветеринар говорит — артрит.
+        НПВП дали желудочное кровотечение. Лечим одно — калечим другое.
+        Ищу натуральное, что облегчит боль без вреда.»
+      </p>
+      <span class="avatar-trigger">✦ Суставы / Боль у пожилой собаки / Натуральный выбор</span>
+    </div>
+    <div class="avatar-card reveal">
+      <div class="avatar-header">
+        <div class="avatar-emoji pink">👩</div>
+        <div>
+          <div class="avatar-name">Мария, 34 года</div>
+          <div class="avatar-desc">Волонтёр · Спасённая собака с травмой</div>
+        </div>
+      </div>
+      <p class="avatar-pain">
+        «Гошо боится всего — мужчин, лестниц, пакетов. Хлопнула дверь — он забился под кровать.
+        Я вложила душу в его адаптацию. Я обещала ему лучшую жизнь.
+        Нужна мягкая, натуральная поддержка.»
+      </p>
+      <span class="avatar-trigger">✦ Приютская собака / Психологическая реабилитация</span>
+    </div>
+  </div>
+</section>
+
+<!-- DOSAGE -->
+<section class="dosage">
+  <p class="section-label">Как давать</p>
+  <h2 class="reveal">Рекомендуемая суточная доза</h2>
+  <div class="dose-grid reveal">
+    <div class="dose-card">
+      <div class="dose-weight">&lt;10 кг</div>
+      <div class="dose-amount">&lt;10 шт</div>
+      <div class="dose-unit">в день</div>
+    </div>
+    <div class="dose-card">
+      <div class="dose-weight">10–20 кг</div>
+      <div class="dose-amount">10–15 шт</div>
+      <div class="dose-unit">в день</div>
+    </div>
+    <div class="dose-card">
+      <div class="dose-weight">20–30 кг</div>
+      <div class="dose-amount">15–20 шт</div>
+      <div class="dose-unit">в день</div>
+    </div>
+    <div class="dose-card">
+      <div class="dose-weight">30–40 кг</div>
+      <div class="dose-amount">20–25 шт</div>
+      <div class="dose-unit">в день</div>
+    </div>
+    <div class="dose-card">
+      <div class="dose-weight">&gt;50 кг</div>
+      <div class="dose-amount">&gt;30 шт</div>
+      <div class="dose-unit">в день</div>
+    </div>
+  </div>
+  <div class="dose-note reveal">
+    💡 <strong>При стрессовых ситуациях</strong> (фейерверки, гроза, поездка, ветеринар) —
+    дайте за 30–40 минут до начала события. При разлучении — ежедневно утром.
+    Хранить в сухом тёмном месте. Срок годности 24 месяца.
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-header">
+    <p class="section-label reveal">Вопросы и ответы</p>
+    <h2 class="reveal">Отвечаем честно</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Это безопасно? CBD не вызывает привыкание?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Да, безопасно. CBD не является психоактивным веществом. 0% THC подтверждено лабораторным анализом (CoA) на каждую партию. ЭКС (эндоканнабиноидная система) собак идентична человеческой. CBD не вызывает привыкания, не вызывает седации и не изменяет сознание. Продукт одобрен EU ветеринарным контролем (сертификат HR08-009NP).
+        </div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Когда ждать результата?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          При острых ситуациях (фейерверки, поездка) — давайте за 30–40 минут до события. Успокоительный эффект наступает в течение 30–60 минут. При хронической тревожности или суставных болях — курс 2–4 недели для накопительного эффекта. Большинство владельцев замечают разницу уже на 3–5 день регулярного применения.
+        </div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Чем отличаются два продукта?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <strong>Свинина и Говядина:</strong> больше белка (25,45%), богаче минералами, подходит для активных собак и дрессировки. Сахара выше (8,49%).<br><br>
+          <strong>Курица и Индейка:</strong> сахара всего 0,49% (в 17 раз меньше!), содержит триптофан → серотонин, гипоаллергенный. Идеален для тревожных собак, аллергиков, диабетиков, пожилых. Четыре механизма успокоения вместо двух.
+        </div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Можно ли сочетать с другими лекарствами?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          В большинстве случаев — да, без проблем. Однако если ваша собака принимает антикоагулянты или противосудорожные препараты — проконсультируйтесь с ветеринаром. CBD метаболизируется через систему CYP450, что теоретически может влиять на метаболизм некоторых лекарств.
+        </div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Есть ли побочные эффекты?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          При соблюдении рекомендуемых доз побочных эффектов не выявлено. В редких случаях при значительном превышении дозы возможна лёгкая вялость (проходит самостоятельно). Продукт не вызывает привыкания. Ромашка у некоторых собак с аллергией на астровые может вызвать реакцию — в этом случае выбирайте продукт с меньшим содержанием.
+        </div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Сколько в пачке? Сколько хватит?
+        <span class="faq-arrow">▾</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Каждая упаковка содержит 100 граммов лакомств. Размер одного лакомства — небольшой кусочек. Продолжительность зависит от веса собаки: для маленькой собаки (&lt;10 кг) одной пачки хватит примерно на 10–14 дней ежедневного применения; для крупной собаки (30–40 кг) — 4–5 дней. Рекомендуем заказывать сразу несколько упаковок.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="buy">
+  <p class="section-label reveal">Начните сегодня</p>
+  <h2 class="reveal">Дайте своей собаке<br>то, что она <em>заслуживает</em></h2>
+  <p class="final-cta-sub reveal">
+    Спокойствие — это не роскошь. Это то, что должна чувствовать каждая собака.
+    И каждый её владелец.
+  </p>
+  <div class="cta-buttons reveal">
+    <a href="https://canna-om.com" target="_blank" class="btn-big gold-big">Заказать на canna-om.com →</a>
+    <a href="https://instagram.com" target="_blank" class="btn-big">Подписаться в Instagram</a>
+  </div>
+  <div class="final-assurance reveal">
+    <div class="assurance-item"><span>🇪🇺</span> EU производство</div>
+    <div class="assurance-item"><span>🧪</span> 0% THC лабораторно</div>
+    <div class="assurance-item"><span>🌿</span> 100% натуральный состав</div>
+    <div class="assurance-item"><span>✦</span> Ветеринарный сертификат</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Canna<span>·Om</span></div>
+  <div class="footer-divider"></div>
+  <p>
+    CBD лакомства для собак · canna-om.com<br>
+    Rata Trade OOD · ул. Борисова №8, 7000, Русе, Болгария<br>
+    Произведено в Хорватии · EU ветсертификат HR08-009NP
+  </p>
+  <div class="footer-divider"></div>
+  <p>
+    <a href="https://canna-om.com">canna-om.com</a> &nbsp;·&nbsp;
+    Продукт предназначен для собак. Не для людей. Хранить в недоступном для детей месте.<br>
+    © 2025 Canna-Om. Все права защищены.
+  </p>
+</footer>
+
+<script>
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
