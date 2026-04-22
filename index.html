@@ -946,178 +946,240 @@
 
     /* ===== MOBILE — ПОЛНАЯ АДАПТАЦИЯ ===== */
 
-    /* Планшет и меньше */
+    /* ---- Планшет (≤768px) ---- */
     @media (max-width: 768px) {
-      /* Все секции — меньше отступы */
-      .pain, .solution, .products, .mechanisms, .axes,
-      .comparison, .trust, .avatars, .dosage, .faq,
-      .final-cta, .ingredients {
+      .pain, .solution, .products, .ingredients,
+      .mechanisms, .axes, .comparison, .trust,
+      .avatars, .dosage, .faq, .final-cta {
         padding: 60px 20px;
       }
 
-      /* Сетки — одна колонка */
-      .pain-grid { grid-template-columns: 1fr; gap: 16px; }
-      .products-grid { grid-template-columns: 1fr; gap: 24px; }
-      .axes-grid { grid-template-columns: 1fr; gap: 16px; }
-      .ing-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-      .trust-badges { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-      .avatar-grid { grid-template-columns: 1fr; gap: 16px; }
+      .pain-grid { grid-template-columns: 1fr; gap: 14px; }
+      .products-grid { grid-template-columns: 1fr; gap: 20px; }
+      .axes-grid { grid-template-columns: 1fr; gap: 14px; }
+      .ing-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .trust-badges { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .avatar-grid { grid-template-columns: 1fr; gap: 14px; }
+      .mech-grid { grid-template-columns: 1fr; gap: 14px; }
 
-      /* Механизмы — 1 колонка на мобиле */
-      .mech-grid { grid-template-columns: 1fr; gap: 16px; }
-
-      /* Solution stats — 2x2 */
       .solution-stats { flex-wrap: wrap; }
       .stat { flex: 0 0 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
       .stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
 
-      /* Дозировка — 3 колонки */
       .dose-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
 
-      /* Сравнение — горизонтальный скролл */
       .comp-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
       .comp-row { min-width: 520px; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; }
     }
 
-    /* Смартфон */
+    /* ---- Смартфон (≤640px) ---- */
     @media (max-width: 640px) {
-      /* Навигация */
-      nav { padding: 12px 16px; }
-      .nav-logo { font-size: 18px; }
-      .nav-cta { padding: 9px 16px; font-size: 12px; }
 
-      /* Hero — полная перестройка */
-      .hero-top { padding: 70px 20px 0; }
-      .hero-content { padding: 0 20px 40px; }
+      /* Глобальный сброс overflow */
+      body { overflow-x: hidden; }
 
-      .hero h1 { font-size: clamp(32px, 10vw, 44px); line-height: 1.05; }
-      .hero-sub { font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+      /* === Навигация === */
+      nav { padding: 10px 16px; }
+      .nav-logo { font-size: 17px; }
+      .nav-cta { padding: 8px 14px; font-size: 12px; }
 
-      /* Кнопки и упаковки — переносим вертикально */
+      /* === HERO === */
+      .hero { min-height: 100svh; }
+
+      /* Badge чуть ниже, меньше */
+      .hero-top { padding: 56px 20px 0; }
+      .hero-badge { font-size: 9px; padding: 6px 14px; letter-spacing: 0.10em; }
+
+      /* Контент — прижат к низу */
+      .hero-content {
+        padding: 0 20px 36px;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Заголовок */
+      .hero h1 {
+        font-size: clamp(30px, 9vw, 42px);
+        line-height: 1.05;
+        margin-bottom: 12px;
+      }
+
+      /* Подзаголовок */
+      .hero-sub {
+        font-size: 14px;
+        line-height: 1.55;
+        margin-bottom: 20px;
+        max-width: 100%;
+      }
+
+      /* Нижний ряд — колонка */
       .hero-bottom-row {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+        align-items: stretch;
+        gap: 16px;
+        width: 100%;
       }
 
-      /* Упаковки — правый нижний угол */
-      .hero-products {
-        align-self: flex-end;
-        transform: none;
-        gap: 8px;
-      }
-      .hero-product-img { width: 80px; }
-      .hero-product-img:nth-child(2) { width: 96px; }
+      /* Упаковки — СКРЫВАЕМ на мобиле (экономим место) */
+      .hero-products { display: none; }
 
-      /* Кнопки — в колонку */
-      .hero-buttons { flex-direction: column; gap: 10px; width: 100%; }
-      .btn-primary, .btn-secondary {
+      /* Кнопки — вертикально, на всю ширину */
+      .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
         text-align: center;
-        padding: 15px 24px;
+        padding: 15px 20px;
         font-size: 15px;
+        white-space: normal;
       }
 
-      /* Trust pills — прокручиваемый ряд */
+      /* Trust pills — 2 ряда, flex-wrap */
       .hero-trust {
-        gap: 8px;
-        margin-top: 16px;
-        overflow-x: auto;
-        padding-bottom: 4px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 12px;
+        overflow: visible;
       }
-      .hero-trust::-webkit-scrollbar { display: none; }
-      .trust-pill { font-size: 11px; padding: 7px 12px; }
+      .trust-pill {
+        font-size: 11px;
+        padding: 6px 11px;
+        flex: 0 0 auto;
+      }
 
-      /* Заголовки секций */
-      .section-label { font-size: 10px; }
+      /* === Секции — меньше отступы === */
+      .pain, .solution, .products, .ingredients,
+      .mechanisms, .axes, .comparison, .trust,
+      .avatars, .dosage, .faq, .final-cta {
+        padding: 52px 16px;
+      }
+
+      /* === Заголовки секций === */
+      .section-label { font-size: 10px; letter-spacing: 0.12em; }
+
       .pain h2, .solution h2, .products-header h2,
       .mechanisms-header h2, .axes-header h2,
       .comparison-header h2, .trust h2,
       .avatars-header h2, .dosage h2,
-      .faq-header h2, .final-cta h2 {
-        font-size: clamp(26px, 7vw, 36px);
+      .faq-header h2, .final-cta h2,
+      .ingredients h2 {
+        font-size: clamp(24px, 7.5vw, 34px);
+        line-height: 1.1;
       }
 
-      /* Боли */
-      .pain-intro { font-size: 15px; margin-bottom: 32px; }
-      .pain-card { padding: 24px 20px; }
-      .pain-emoji { font-size: 28px; }
-      .pain-card h3 { font-size: 17px; }
-      .pain-card p { font-size: 14px; }
+      /* === Боли === */
+      .pain-intro { font-size: 14px; margin-bottom: 28px; }
+      .pain-grid { grid-template-columns: 1fr; gap: 12px; }
+      .pain-card { padding: 22px 18px; }
+      .pain-emoji { font-size: 26px; margin-bottom: 12px; }
+      .pain-card h3 { font-size: 16px; }
+      .pain-card p { font-size: 13px; }
 
-      /* Solution stats — 2 колонки */
-      .stat-num { font-size: 38px; }
+      /* === Solution === */
+      .solution-intro { font-size: 14px; margin-bottom: 28px; }
+      .stat-num { font-size: 36px; }
       .stat-label { font-size: 11px; }
 
-      /* Продукты */
-      .product-card-img { padding: 30px; }
-      .product-card-img img { width: 200px; }
-      .product-card-body { padding: 22px 20px; }
-      .product-card-body h3 { font-size: 22px; }
-      .product-tagline { font-size: 12px; }
-      .product-benefits li { font-size: 14px; }
-      .product-cta { font-size: 14px; padding: 15px; }
+      /* === Продукты === */
+      .products-grid { grid-template-columns: 1fr; gap: 20px; }
+      .product-card-img {
+        padding: 24px 20px;
+        background: transparent !important;
+        min-height: 240px;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .product-card-img img { width: 180px; max-width: 80%; }
+      .product-card-body { padding: 20px 18px; }
+      .product-card-body h3 { font-size: 20px; }
+      .product-tagline { font-size: 11px; }
+      .product-benefits li { font-size: 13px; }
+      .product-cta { font-size: 14px; padding: 14px 16px; }
 
-      /* Механизмы */
-      .mech-card { padding: 24px 20px; }
-      .mech-num { font-size: 40px; }
-      .mech-card h3 { font-size: 17px; }
+      /* === Механизмы === */
+      .mech-grid { grid-template-columns: 1fr; gap: 12px; }
+      .mech-card { padding: 22px 18px; }
+      .mech-num { font-size: 38px; }
+      .mech-card h3 { font-size: 16px; }
       .mech-card p { font-size: 13px; }
-      .mech-together { padding: 24px 20px; }
-      .mech-together p { font-size: 15px; }
+      .mech-together { padding: 22px 18px; margin-top: 16px; }
+      .mech-together p { font-size: 14px; }
 
-      /* Оси */
-      .axis-card { padding: 24px 20px; }
-      .axis-icon { font-size: 30px; }
-      .axis-card h3 { font-size: 18px; }
+      /* === Оси === */
+      .axes-grid { grid-template-columns: 1fr; gap: 12px; }
+      .axis-card { padding: 22px 18px; }
+      .axis-icon { font-size: 28px; }
+      .axis-card h3 { font-size: 17px; }
       .axis-card p { font-size: 13px; }
 
-      /* Состав */
-      .ing-grid { grid-template-columns: 1fr; }
-      .ing-card { padding: 22px 18px; }
+      /* === Состав === */
+      .ing-grid { grid-template-columns: 1fr; gap: 10px; }
+      .ing-card { padding: 20px 16px; }
+      .ing-card h4 { font-size: 15px; }
+      .ing-card p { font-size: 13px; }
 
-      /* Доверие */
-      .trust-text { font-size: 15px; margin-bottom: 32px; }
-      .trust-badge { padding: 24px 18px; }
-      .trust-badge h4 { font-size: 15px; }
-      .trust-badge p { font-size: 13px; }
-      .made-in { font-size: 13px; padding: 14px 20px; flex-wrap: wrap; justify-content: center; }
+      /* === Доверие === */
+      .trust-text { font-size: 14px; margin-bottom: 28px; }
+      .trust-badges { grid-template-columns: 1fr; gap: 10px; }
+      .trust-badge { padding: 22px 16px; }
+      .trust-badge h4 { font-size: 14px; }
+      .trust-badge p { font-size: 12px; }
+      .made-in { font-size: 12px; padding: 12px 16px; flex-wrap: wrap; justify-content: center; gap: 8px; }
 
-      /* Аватары */
-      .avatar-card { padding: 24px 20px; }
-      .avatar-name { font-size: 16px; }
+      /* === Аватары === */
+      .avatar-grid { grid-template-columns: 1fr; gap: 12px; }
+      .avatar-card { padding: 22px 18px; }
+      .avatar-name { font-size: 15px; }
       .avatar-pain { font-size: 13px; }
 
-      /* Дозировка */
+      /* === Дозировка === */
       .dose-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .dose-weight { font-size: 20px; }
-      .dose-amount { font-size: 17px; }
-      .dose-note { font-size: 13px; padding: 16px 18px; }
+      .dose-weight { font-size: 18px; }
+      .dose-amount { font-size: 16px; }
+      .dose-note { font-size: 13px; padding: 14px 16px; }
 
-      /* FAQ */
-      .faq-q { font-size: 16px; padding: 16px 18px; }
-      .faq-a-inner { font-size: 13px; padding: 0 18px 16px; }
+      /* === FAQ === */
+      .faq-q { font-size: 15px; padding: 15px 16px; }
+      .faq-a-inner { font-size: 13px; padding: 0 16px 14px; }
 
-      /* Финальный CTA */
-      .final-cta-sub { font-size: 15px; }
-      .cta-buttons { flex-direction: column; align-items: center; }
-      .btn-big { padding: 16px 36px; font-size: 15px; text-align: center; }
-      .final-assurance { gap: 12px; }
-      .assurance-item { font-size: 12px; }
+      /* === Финальный CTA === */
+      .final-cta-sub { font-size: 14px; }
+      .cta-buttons { flex-direction: column; align-items: stretch; gap: 10px; }
+      .btn-big {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        padding: 16px 24px;
+        font-size: 15px;
+      }
+      .final-assurance { gap: 10px; flex-wrap: wrap; justify-content: center; }
+      .assurance-item { font-size: 11px; }
 
-      /* Футер */
-      footer { padding: 32px 20px; }
-      .footer-logo { font-size: 22px; }
+      /* === Сравнение === */
+      .comp-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .comp-row { min-width: 480px; }
+
+      /* === Футер === */
+      footer { padding: 28px 16px; }
+      .footer-logo { font-size: 20px; }
       footer p { font-size: 12px; }
     }
 
-    /* Маленький смартфон */
+    /* ---- Мини-смартфон (≤390px) ---- */
     @media (max-width: 390px) {
-      .hero h1 { font-size: 30px; }
-      .trust-badges { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 27px; }
+      .hero-sub { font-size: 13px; }
+      .trust-pill { font-size: 10px; padding: 5px 9px; }
       .dose-grid { grid-template-columns: repeat(2, 1fr); }
-      .btn-primary, .btn-secondary { font-size: 14px; padding: 13px 20px; }
+      .btn-primary, .btn-secondary { font-size: 14px; padding: 13px 16px; }
     }
 
     /* Ingredient highlight */
